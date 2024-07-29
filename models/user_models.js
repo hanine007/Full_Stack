@@ -27,7 +27,7 @@ import path from "path";
  salt:String,
  })
  User.virtual('password')
-    .set(function(password) {
+    .set(function(password) {//prendre le mdp en clair
         this._password = password; //Le mot de passe en clair est stocké dans la propriété privée _password
         this.salt = this.makeSalt();
         this.hashed_password = this.encryptPassword(password);//e mot de passe est chiffré en utilisant la méthode encryptPassword(password)
