@@ -54,7 +54,7 @@ User.methods={//methodes
         
 }
 //Password field validation
-User.path('hashed_password').validate(function(v) { //validation pswrd
+User.path('hashed_password').validate(function(v) { //validation le hash save in db with the password virtual
 if (this._password && this._password.length < 6) {
 this.invalidate('password', 'Password must be at least 6 characters.')
 }
