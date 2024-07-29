@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import path from "path";
 
  const User = new mongoose.Schema({
  name:{
@@ -52,6 +53,14 @@ User.methods={//methodes
         }
         
 }
- 
+//Password field validation
+User.path('hashed_password').validate(function(v) { //validation pswrd
+if (this._password && this._password.length < 6) {
+this.invalidate('password', 'Password must be at least 6 characters.')
+}
+if ( !this._password) {
+this.invalidate('password', 'Password is required')
+}
+}, null)// `null` ici pour indiquer qu'il n'y a pas de fonction de validation spécifique en dehors de la validation personnalisée
 
 export const user = mongoose.model('user',User)
