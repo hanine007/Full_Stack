@@ -18,7 +18,7 @@ app.listen (configg.port,(err)=>{
     console.log(`server is running on port ${configg.port}`)
 })
 mongoose.connect(configg.mongoUri).then(()=>{
-    console.log(`connect to ${configg.mongoUri}`)
+    console.log(`connect to the database`)
 
 })
 .catch((error)=>{
