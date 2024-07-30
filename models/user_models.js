@@ -63,4 +63,4 @@ this.invalidate('password', 'Password is required')
 }
 }, null)// `null` ici pour indiquer qu'il n'y a pas de fonction de validation spécifique en dehors de la validation personnalisée
 
-export const user = mongoose.model('user',User)
+export const useer = mongoose.model('user',User)
