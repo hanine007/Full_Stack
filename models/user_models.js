@@ -30,8 +30,9 @@ import crypto from 'crypto';
     
  },
  salt:String,
+
  })
- User.virtual('password')
+ User.virtual('password') //définissez la propriété password sur une instance du modèle User, la méthode setter est appelée.
     .set(function(password) {//prendre le mdp en clair
         this._password = password; //Le mot de passe en clair est stocké dans la propriété privée _password
         this.salt = this.makeSalt();
@@ -67,5 +68,8 @@ if ( !this._password) {
 this.invalidate('password', 'Password is required')
 }
 }, null)// `null` ici pour indiquer qu'il n'y a pas de fonction de validation spécifique en dehors de la validation personnalisée
+
+
+
 
 export const Useer = mongoose.model('Usseer',User)
