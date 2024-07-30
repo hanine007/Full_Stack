@@ -1,6 +1,7 @@
+
 import mongoose from "mongoose";
 import path from "path";
-
+import crypto from 'crypto'; 
  const User = new mongoose.Schema({
  name:{
     type:String,
@@ -18,7 +19,11 @@ import path from "path";
     type:Date,
     default:Date.now
  },
- update:true,
+ update:{
+    type:Date,
+    default:Date.now
+ 
+ },
  hashed_password:{
     type:String,
     required:'password is required',
@@ -63,4 +68,4 @@ this.invalidate('password', 'Password is required')
 }
 }, null)// `null` ici pour indiquer qu'il n'y a pas de fonction de validation spécifique en dehors de la validation personnalisée
 
-export const useer = mongoose.model('user',User)
+export const Useer = mongoose.model('Useer',User)
